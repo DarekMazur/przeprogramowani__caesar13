@@ -1,0 +1,10 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+const Encrypt = input => {
+  const test = 'test';
+  const rot13 = test => {
+    return test;
+  };
+  return rot13();
+};
+exports.default = Encrypt;

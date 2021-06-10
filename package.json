@@ -1,0 +1,21 @@
+{
+  "name": "caesar13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarekMazur/przeprogramowani__caesar13.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarekMazur/przeprogramowani__caesar13/issues"
+  },
+  "homepage": "https://github.com/DarekMazur/przeprogramowani__caesar13#readme"
+}

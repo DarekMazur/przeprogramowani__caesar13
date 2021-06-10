@@ -1,0 +1,2 @@
+document.querySelector("#app").append((()=>"TEST"));
+//# sourceMappingURL=index.HASH_REF_25bf852aba357aa4debfc8070e4d813e.js.map
