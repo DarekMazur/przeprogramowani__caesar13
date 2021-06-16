@@ -467,6 +467,46 @@ var _utilsFunctions = require('../../utils/functions');
 const Encrypt = input => {
   const plainTextArray = input.split('');
   const plainTextUniversalChars = [];
+  // function polishToUniversalLetter(letter) {
+  // switch (letter) {
+  // case 'ą' :
+  // return 'a';
+  // case 'ć' :
+  // return 'c';
+  // case 'ę' :
+  // return 'e';
+  // case 'ł' :
+  // return 'l';
+  // case 'ń' :
+  // return 'n';
+  // case 'ó' :
+  // return 'o';
+  // case 'ś' :
+  // return 's';
+  // case 'ż' :
+  // case 'ź' :
+  // return 'z';
+  // case 'Ą' :
+  // return 'A';
+  // case 'Ć' :
+  // return 'C';
+  // case 'Ę' :
+  // return 'E';
+  // case 'Ł' :
+  // return 'L';
+  // case 'Ń' :
+  // return 'N';
+  // case 'Ó' :
+  // return 'O';
+  // case 'Ś' :
+  // return 'S';
+  // case 'Ż' :
+  // case 'Ź' :
+  // return 'Z';
+  // default :
+  // return letter;
+  // };
+  // };
   plainTextArray.forEach(letter => {
     plainTextUniversalChars.push(_utilsFunctions.polishToUniversalLetter(letter));
   });
@@ -625,4 +665,4 @@ exports.default = Footer();
 
 },{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}]},["3Imd1","5rkFb"], "5rkFb", "parcelRequireee2d")
 
-//# sourceMappingURL=index.3fafb3e2.js.map
+//# sourceMappingURL=index.HASH_REF_0fa2489aa94c8731ee2aee9f3fafb3e2.js.map
