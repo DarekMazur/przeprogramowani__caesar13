@@ -1,7 +1,8 @@
 import Header from './components/Header/Header'
+import MainContent from './components/MainContent/MainContent'
 import Footer from './components/Footer/Footer'
 import Encrypt from './components/Encrypt/Encrypt';
-import './styles/styles.css';
+import './styles/styles.min.css';
 
 const app = document.querySelector('body');
 
@@ -9,23 +10,7 @@ const promise = new Promise(resolve => {
         resolve(
         app.innerHTML = `
         ${Header}
-        <main>
-            <div class='encryptorWrapper'>
-                <div class=formWrapper>
-                    <textarea class='stringToEncrypt' name='stringToEncrypt' placeholder=" "></textarea>
-                    <label for='stringToEncrypt'>
-                        Message to encrypt
-                    </label>
-                    <div class='buttonWrapper'>
-                        <button class='sendButton'>Encrypt!</button>
-                        <button class='resetButton'>Reset</button>
-                    </div>
-                </div>
-                <p class='encrypted'>    
-                
-                </p>
-            </div>
-        </main>
+        ${MainContent}
         ${Footer}
     `)
     });

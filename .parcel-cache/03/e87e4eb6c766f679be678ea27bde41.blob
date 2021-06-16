@@ -736,8 +736,8 @@ const MainContent = () => {
         </main>
     `;
 };
-exports.default = MainContent();
+exports.default = MainContent;
 
 },{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}]},["3Imd1","5rkFb"], "5rkFb", "parcelRequireee2d")
 
-//# sourceMappingURL=index.3fafb3e2.js.map
+//# sourceMappingURL=index.HASH_REF_0fa2489aa94c8731ee2aee9f3fafb3e2.js.map

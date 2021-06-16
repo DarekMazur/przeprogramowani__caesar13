@@ -713,10 +713,8 @@ function polishToUniversalLetter(letter) {
 ;
 
 },{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"7bjJK":[function() {},{}],"2rcJO":[function(require,module,exports) {
-var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-_parcelHelpers.defineInteropFlag(exports);
 const MainContent = () => {
-  return `
+    return(`
         <main>
             <div class='encryptorWrapper'>
                 <div class=formWrapper>
@@ -734,10 +732,8 @@ const MainContent = () => {
                 </p>
             </div>
         </main>
-    `;
-};
-exports.default = MainContent();
+    `)
+}
+},{}]},["3Imd1","5rkFb"], "5rkFb", "parcelRequireee2d")
 
-},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}]},["3Imd1","5rkFb"], "5rkFb", "parcelRequireee2d")
-
-//# sourceMappingURL=index.3fafb3e2.js.map
+//# sourceMappingURL=index.HASH_REF_0fa2489aa94c8731ee2aee9f3fafb3e2.js.map

@@ -445,8 +445,6 @@ id) /*: string*/
 var _componentsHeaderHeader = require('./components/Header/Header');
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 var _componentsHeaderHeaderDefault = _parcelHelpers.interopDefault(_componentsHeaderHeader);
-var _componentsMainContentMainContent = require('./components/MainContent/MainContent');
-var _componentsMainContentMainContentDefault = _parcelHelpers.interopDefault(_componentsMainContentMainContent);
 var _componentsFooterFooter = require('./components/Footer/Footer');
 var _componentsFooterFooterDefault = _parcelHelpers.interopDefault(_componentsFooterFooter);
 var _componentsEncryptEncrypt = require('./components/Encrypt/Encrypt');
@@ -456,7 +454,23 @@ const app = document.querySelector('body');
 const promise = new Promise(resolve => {
   resolve(app.innerHTML = `
         ${_componentsHeaderHeaderDefault.default}
-        ${_componentsMainContentMainContentDefault.default}
+        <main>
+            <div class='encryptorWrapper'>
+                <div class=formWrapper>
+                    <textarea class='stringToEncrypt' name='stringToEncrypt' placeholder=" "></textarea>
+                    <label for='stringToEncrypt'>
+                        Message to encrypt
+                    </label>
+                    <div class='buttonWrapper'>
+                        <button class='sendButton'>Encrypt!</button>
+                        <button class='resetButton'>Reset</button>
+                    </div>
+                </div>
+                <p class='encrypted'>    
+                
+                </p>
+            </div>
+        </main>
         ${_componentsFooterFooterDefault.default}
     `);
 });
@@ -481,7 +495,7 @@ promise.then(result => {
   resetButton.onclick = resetForm;
 });
 
-},{"./components/Header/Header":"5RL9x","./components/Footer/Footer":"66OBm","./components/Encrypt/Encrypt":"7krV9","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS","./styles/styles.min.css":"7bjJK","./components/MainContent/MainContent":"2rcJO"}],"5RL9x":[function(require,module,exports) {
+},{"./components/Header/Header":"5RL9x","./components/Footer/Footer":"66OBm","./components/Encrypt/Encrypt":"7krV9","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS","./styles/styles.min.css":"7bjJK"}],"5RL9x":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
 var _EliotEliot = require('../Eliot/Eliot');
@@ -712,32 +726,6 @@ function polishToUniversalLetter(letter) {
 }
 ;
 
-},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"7bjJK":[function() {},{}],"2rcJO":[function(require,module,exports) {
-var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-_parcelHelpers.defineInteropFlag(exports);
-const MainContent = () => {
-  return `
-        <main>
-            <div class='encryptorWrapper'>
-                <div class=formWrapper>
-                    <textarea class='stringToEncrypt' name='stringToEncrypt' placeholder=" "></textarea>
-                    <label for='stringToEncrypt'>
-                        Message to encrypt
-                    </label>
-                    <div class='buttonWrapper'>
-                        <button class='sendButton'>Encrypt!</button>
-                        <button class='resetButton'>Reset</button>
-                    </div>
-                </div>
-                <p class='encrypted'>    
-                
-                </p>
-            </div>
-        </main>
-    `;
-};
-exports.default = MainContent();
+},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"7bjJK":[function() {},{}]},["3Imd1","5rkFb"], "5rkFb", "parcelRequireee2d")
 
-},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}]},["3Imd1","5rkFb"], "5rkFb", "parcelRequireee2d")
-
-//# sourceMappingURL=index.3fafb3e2.js.map
+//# sourceMappingURL=index.HASH_REF_0fa2489aa94c8731ee2aee9f3fafb3e2.js.map
