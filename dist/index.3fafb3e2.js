@@ -450,13 +450,36 @@ var _componentsFooterFooterDefault = _parcelHelpers.interopDefault(_componentsFo
 var _componentsEncryptEncrypt = require('./components/Encrypt/Encrypt');
 var _componentsEncryptEncryptDefault = _parcelHelpers.interopDefault(_componentsEncryptEncrypt);
 const app = document.querySelector('body');
-app.innerHTML = `
-    ${_componentsHeaderHeaderDefault.default}
-    <p>
-        ${_componentsEncryptEncryptDefault.default('Schroedinger to mój kot. I ten kot - choć bywa nieznośny i wredny - ogólnie jest uroczą, puszystą kulką :)')}
-    </p>
-    ${_componentsFooterFooterDefault.default}
-`;
+const promise = new Promise(resolve => {
+  resolve(app.innerHTML = `
+        ${_componentsHeaderHeaderDefault.default}
+        <main>
+            <p>
+                <textarea class='stringToEncrypt' placeholder='PRZEPROGRAMOWANI'></textarea>
+                <button class='sendButton'>Encrypt!</button>
+                <button class='resetButton'>Reset</button>
+            </p>
+            <p class='encrypted'>    
+            
+            </p>
+        </main>
+        ${_componentsFooterFooterDefault.default}
+    `);
+});
+promise.then(result => {
+  const input = document.querySelector('.stringToEncrypt');
+  const encryptedContent = document.querySelector('.encrypted');
+  const sendButton = document.querySelector('.sendButton');
+  const resetButton = document.querySelector('.resetButton');
+  const encryptContent = () => encryptedContent.innerHTML = input.value === '' ? _componentsEncryptEncryptDefault.default(input.placeholder) : _componentsEncryptEncryptDefault.default(input.value);
+  const resetForm = () => {
+    input.value = '';
+    input.placeholder = 'PRZEPROGRAMOWANI';
+    encryptedContent.innerHTML = '';
+  };
+  sendButton.onclick = encryptContent;
+  resetButton.onclick = resetForm;
+});
 
 },{"./components/Encrypt/Encrypt":"7krV9","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS","./components/Header/Header":"5RL9x","./components/Footer/Footer":"66OBm"}],"7krV9":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
