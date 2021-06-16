@@ -36,7 +36,7 @@ Caesar Encryptor is simple application to encrypt text using Caesar Cipher.
     ```shell
     npm run dev
     ```
-    Application will run on port 1235 (localhost:1234)
+    Application will run on port 1234 (localhost:1234)
 
 4.  **What's inside?**
 
