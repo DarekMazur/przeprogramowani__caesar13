@@ -13,7 +13,7 @@ Caesar Encryptor is simple application to encrypt text using Caesar Cipher.
 
 ### **IMPORTANT NOTE**
 
-**Caesar Cipher is VERY simple encryption algorythm - it's highly not recommanded to use it for any impotrant/vulnerable data!**
+**Caesar Cipher is VERY simple encryption algorythm - it's highly not recommended to use it for any impotrant/vulnerable data!**
 
 
 ## 🚀 Quick start
