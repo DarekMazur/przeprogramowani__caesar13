@@ -1,6 +1,0 @@
-var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-_parcelHelpers.defineInteropFlag(exports);
-const Header = () => {
-  `<header>Lorem Ipsum</header>`;
-};
-exports.default = Header;
