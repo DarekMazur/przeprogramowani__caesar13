@@ -1,4 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&family=Montserrat:wght@400;700&family=Raleway:wght@500&display=swap");
+@keyframes doorOpen {
+  from {
+    transform: translateX(-100%) rotate(-180deg);
+  }
+  to {
+    transform: translateX(0) rotate(0);
+  }
+}
+
 html, body {
   width: 100%;
   padding: 0;
@@ -29,15 +38,16 @@ header, footer, main {
   margin: 0;
 }
 
-main {
-  min-height: 70vh;
+header {
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
-header {
-  background: url("../assets/images/cezar.png") no-repeat right top;
+main {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 footer {
@@ -111,4 +121,15 @@ button, .sendButton {
   color: red;
   font-size: 1.2rem;
   font-weight: 700;
+}
+
+svg {
+  width: 200px;
+  height: 200px;
+  margin-right: 2rem;
+}
+
+svg .door {
+  transform-origin: 50% 50%;
+  animation: 1000ms both 2000ms doorOpen;
 }

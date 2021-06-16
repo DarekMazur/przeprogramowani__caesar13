@@ -1,0 +1,18 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _EliotEliot = require('../Eliot/Eliot');
+var _EliotEliotDefault = _parcelHelpers.interopDefault(_EliotEliot);
+var _assetsImagesV13Svg = require('../../assets/images/v13.svg');
+var _assetsImagesV13SvgDefault = _parcelHelpers.interopDefault(_assetsImagesV13Svg);
+const Header = () => {
+  return `
+        <header>
+            <div>    
+                <h1>Simple encryptor by Gacek</h1>
+                <h2>${_EliotEliotDefault.default('Encrypt your message')}<h2>
+            </div>
+            <img href=${_assetsImagesV13SvgDefault.default} alt="logo" />
+        </header>
+    `;
+};
+exports.default = Header();
