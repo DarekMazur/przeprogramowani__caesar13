@@ -1,0 +1,38 @@
+var _componentsHeaderHeader = require('./components/Header/Header');
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+var _componentsHeaderHeaderDefault = _parcelHelpers.interopDefault(_componentsHeaderHeader);
+var _componentsMainContentMainContent = require('./components/MainContent/MainContent');
+var _componentsMainContentMainContentDefault = _parcelHelpers.interopDefault(_componentsMainContentMainContent);
+var _componentsFooterFooter = require('./components/Footer/Footer');
+var _componentsFooterFooterDefault = _parcelHelpers.interopDefault(_componentsFooterFooter);
+var _componentsEncryptEncrypt = require('./components/Encrypt/Encrypt');
+var _componentsEncryptEncryptDefault = _parcelHelpers.interopDefault(_componentsEncryptEncrypt);
+require('./styles/styles.min.css');
+const app = document.querySelector('body');
+const promise = new Promise(resolve => {
+  resolve(app.innerHTML = `
+            ${_componentsHeaderHeaderDefault.default}
+            ${_componentsMainContentMainContentDefault.default}
+            ${_componentsFooterFooterDefault.default}
+        `);
+});
+promise.then(result => {
+  const input = document.querySelector('.stringToEncrypt');
+  const encryptedContent = document.querySelector('.encrypted');
+  const sendButton = document.querySelector('.sendButton');
+  const resetButton = document.querySelector('.resetButton');
+  const encryptContent = () => {
+    encryptedContent.classList.remove('isError');
+    encryptedContent.innerHTML = _componentsEncryptEncryptDefault.default(input.value);
+    if (encryptedContent.innerHTML === 'Sorry, your message must be a text' || encryptedContent.innerHTML === `Sorry, your message can't be empty`) {
+      encryptedContent.classList.add('isError');
+    }
+  };
+  const resetForm = () => {
+    encryptedContent.classList.remove('isError');
+    input.value = '';
+    encryptedContent.innerHTML = '';
+  };
+  sendButton.onclick = encryptContent;
+  resetButton.onclick = resetForm;
+});

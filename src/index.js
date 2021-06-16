@@ -7,15 +7,15 @@ import './styles/styles.min.css';
 const app = document.querySelector('body');
 
 const promise = new Promise(resolve => {
-        resolve(
+    resolve(
         app.innerHTML = `
         ${Header}
         ${MainContent}
         ${Footer}
     `)
-    });
+});
   
-  promise
+promise
     .then(result => {
         const input = document.querySelector('.stringToEncrypt');
         const encryptedContent = document.querySelector('.encrypted');
