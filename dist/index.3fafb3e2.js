@@ -442,20 +442,28 @@ id) /*: string*/
 }
 
 },{}],"5rkFb":[function(require,module,exports) {
-var _componentsEncryptEncrypt = require('./components/Encrypt/Encrypt');
+var _componentsHeaderHeader = require('./components/Header/Header');
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+var _componentsHeaderHeaderDefault = _parcelHelpers.interopDefault(_componentsHeaderHeader);
+var _componentsFooterFooter = require('./components/Footer/Footer');
+var _componentsFooterFooterDefault = _parcelHelpers.interopDefault(_componentsFooterFooter);
+var _componentsEncryptEncrypt = require('./components/Encrypt/Encrypt');
 var _componentsEncryptEncryptDefault = _parcelHelpers.interopDefault(_componentsEncryptEncrypt);
 const app = document.querySelector('#app');
-console.log(_componentsEncryptEncryptDefault.default('Zażółć gęślą jaźń'));
+app.innerHTML = `
+    ${_componentsHeaderHeaderDefault.default}
+    <p>
+        ${_componentsEncryptEncryptDefault.default('Schroedinger to mój kot. I ten kot - choć bywa nieznośny i wredny - ogólnie jest uroczą, puszystą kulką :)')}
+    </p>
+    ${_componentsFooterFooterDefault.default}
+`;
 
-},{"./components/Encrypt/Encrypt":"7krV9","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"7krV9":[function(require,module,exports) {
+},{"./components/Encrypt/Encrypt":"7krV9","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS","./components/Header/Header":"5RL9x","./components/Footer/Footer":"66OBm"}],"7krV9":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
+var _ROT13ROT = require('../ROT13/ROT13');
+var _ROT13ROTDefault = _parcelHelpers.interopDefault(_ROT13ROT);
 const Encrypt = input => {
-  // check if empty
-  // divide string to array
-  // remove special chars
-  // 
   const plainTextArray = input.split('');
   const plainTextUniversalChars = [];
   function polishToUniversalLetter(letter) {
@@ -499,20 +507,15 @@ const Encrypt = input => {
     }
     ;
   }
-  // end of switch
   ;
-  // end of function
   plainTextArray.forEach(letter => {
     plainTextUniversalChars.push(polishToUniversalLetter(letter));
   });
-  const rot13 = plainText => {
-    return plainText;
-  };
-  return rot13(plainTextUniversalChars);
+  return _ROT13ROTDefault.default(plainTextUniversalChars);
 };
 exports.default = Encrypt;
 
-},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"3fLqS":[function(require,module,exports) {
+},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS","../ROT13/ROT13":"7iZXf"}],"3fLqS":[function(require,module,exports) {
 "use strict";
 
 exports.interopDefault = function (a) {
@@ -554,6 +557,64 @@ exports.export = function (dest, destName, get) {
     get: get
   });
 };
-},{}]},["3Imd1","5rkFb"], "5rkFb", "parcelRequireee2d")
+},{}],"7iZXf":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _utilsAllLettersArray = require('../../utils/allLettersArray');
+var _utilsAllLettersArrayDefault = _parcelHelpers.interopDefault(_utilsAllLettersArray);
+var _utilsVariables = require('../../utils/variables');
+var _utilsVariablesDefault = _parcelHelpers.interopDefault(_utilsVariables);
+const ROT13 = plainText => {
+  const encryption = [];
+  plainText.forEach(letter => {
+    if (_utilsAllLettersArrayDefault.default.some(el => letter.toLowerCase() === el)) {
+      const letterPosition = _utilsAllLettersArrayDefault.default.indexOf(letter.toLowerCase());
+      letter === letter.toUpperCase() ? encryption.push(_utilsAllLettersArrayDefault.default[(letterPosition + _utilsVariablesDefault.default.encryption) % _utilsAllLettersArrayDefault.default.length].toUpperCase()) : encryption.push(_utilsAllLettersArrayDefault.default[(letterPosition + _utilsVariablesDefault.default.encryption) % _utilsAllLettersArrayDefault.default.length]);
+    } else {
+      encryption.push(letter);
+    }
+  });
+  return encryption.join('');
+};
+exports.default = ROT13;
+
+},{"../../utils/allLettersArray":"3Yc6Z","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS","../../utils/variables":"2jDx0"}],"3Yc6Z":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+exports.default = allLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"2jDx0":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+exports.default = variables = {
+  encryption: 13
+};
+
+},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"5RL9x":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+const Header = () => {
+  return `
+        <header>
+            <h1>Lorem Ipsum</h1>
+            <h2>Dolor sit amet<h2>
+        </header>
+    `;
+};
+exports.default = Header();
+
+},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"66OBm":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+const Footer = () => {
+  return `
+        <footer>
+            <h3>Lorem Ipsum</h3>
+        </footer>
+    `;
+};
+exports.default = Footer();
+
+},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}]},["3Imd1","5rkFb"], "5rkFb", "parcelRequireee2d")
 
 //# sourceMappingURL=index.3fafb3e2.js.map

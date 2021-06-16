@@ -1,0 +1,5 @@
+var _componentsEncryptEncrypt = require('./components/Encrypt/Encrypt');
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+var _componentsEncryptEncryptDefault = _parcelHelpers.interopDefault(_componentsEncryptEncrypt);
+const app = document.querySelector('#app');
+app.innerHTML = _componentsEncryptEncryptDefault.default('Schroedinger to mój kot. I ten kot - choć bywa nieznośny i wredny - ogólnie jest uroczą, puszystą kulką :)');

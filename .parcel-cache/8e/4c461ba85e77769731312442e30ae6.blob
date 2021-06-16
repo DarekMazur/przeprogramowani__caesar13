@@ -1,0 +1,5 @@
+var _componentsEncryptEncrypt = require('./components/Encrypt/Encrypt');
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+var _componentsEncryptEncryptDefault = _parcelHelpers.interopDefault(_componentsEncryptEncrypt);
+const app = document.querySelector('#app');
+console.log(_componentsEncryptEncryptDefault.default('Przeprogramowani'));

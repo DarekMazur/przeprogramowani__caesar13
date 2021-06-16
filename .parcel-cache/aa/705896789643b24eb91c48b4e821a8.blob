@@ -1,0 +1,69 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _utilsAllLettersArray = require('../../utils/allLettersArray');
+var _utilsAllLettersArrayDefault = _parcelHelpers.interopDefault(_utilsAllLettersArray);
+const Encrypt = input => {
+  const plainTextArray = input.split('');
+  const plainTextUniversalChars = [];
+  function polishToUniversalLetter(letter) {
+    switch (letter) {
+      case 'ą':
+        return 'a';
+      case 'ć':
+        return 'c';
+      case 'ę':
+        return 'e';
+      case 'ł':
+        return 'l';
+      case 'ń':
+        return 'n';
+      case 'ó':
+        return 'o';
+      case 'ś':
+        return 's';
+      case 'ż':
+      case 'ź':
+        return 'z';
+      case 'Ą':
+        return 'A';
+      case 'Ć':
+        return 'C';
+      case 'Ę':
+        return 'E';
+      case 'Ł':
+        return 'L';
+      case 'Ń':
+        return 'N';
+      case 'Ó':
+        return 'O';
+      case 'Ś':
+        return 'S';
+      case 'Ż':
+      case 'Ź':
+        return 'Z';
+      default:
+        return letter;
+    }
+    ;
+  }
+  ;
+  plainTextArray.forEach(letter => {
+    plainTextUniversalChars.push(polishToUniversalLetter(letter));
+  });
+  const rot13 = plainText => {
+    const encryptionVariable = 13;
+    // const allLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    const encryption = [];
+    plainText.forEach(letter => {
+      if (_utilsAllLettersArrayDefault.default.some(el => letter.toLowerCase() === el)) {
+        const letterPosition = _utilsAllLettersArrayDefault.default.indexOf(letter.toLowerCase());
+        letter === letter.toUpperCase() ? encryption.push(_utilsAllLettersArrayDefault.default[(letterPosition + encryptionVariable) % _utilsAllLettersArrayDefault.default.length].toUpperCase()) : encryption.push(_utilsAllLettersArrayDefault.default[(letterPosition + encryptionVariable) % _utilsAllLettersArrayDefault.default.length]);
+      } else {
+        encryption.push(letter);
+      }
+    });
+    return encryption.join('');
+  };
+  return rot13(plainTextUniversalChars);
+};
+exports.default = Encrypt;

@@ -1,0 +1,3 @@
+require('./components/Encrypt/Encrypt');
+const app = document.querySelector('#app');
+app.innerHTML = `<p>$(Encrypt('Schroedinger to mój kot. I ten kot - choć bywa nieznośny i wredny - ogólnie jest uroczą, puszystą kulką :)'))</p>`;

@@ -1,9 +1,6 @@
-const Encrypt = (input) => {
+import ROT13 from '../ROT13/ROT13'
 
-    // check if empty
-    // divide string to array
-    // remove special chars
-    // 
+const Encrypt = (input) => {
 
     const plainTextArray = input.split('');
 
@@ -47,24 +44,15 @@ const Encrypt = (input) => {
                 return 'Z';
             default : 
                 return letter; 
-        }; //end of switch
-    }; //end of function
+        };
+    };
 
     plainTextArray.forEach(letter => {
         plainTextUniversalChars.push(polishToUniversalLetter(letter));
     });
 
-    const rot13 = (plainText) => {
-
-        
-
-        return(
-            plainText
-        );
-    }
-
     return(
-        rot13(plainTextUniversalChars)
+        ROT13(plainTextUniversalChars)
     )
 }
 
