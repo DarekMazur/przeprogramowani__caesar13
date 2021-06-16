@@ -1,6 +1,7 @@
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Encrypt from './components/Encrypt/Encrypt';
+import './styles/styles.css';
 
 const app = document.querySelector('body');
 
@@ -9,14 +10,21 @@ const promise = new Promise(resolve => {
         app.innerHTML = `
         ${Header}
         <main>
-            <p>
-                <textarea class='stringToEncrypt' placeholder='PRZEPROGRAMOWANI'></textarea>
-                <button class='sendButton'>Encrypt!</button>
-                <button class='resetButton'>Reset</button>
-            </p>
-            <p class='encrypted'>    
-            
-            </p>
+            <div class='encryptorWrapper'>
+                <div class=formWrapper>
+                    <textarea class='stringToEncrypt' name='stringToEncrypt' placeholder=" "></textarea>
+                    <label for='stringToEncrypt'>
+                        Message to encrypt
+                    </label>
+                </div>
+                <div class='buttonWrapper'>
+                    <button class='sendButton'>Encrypt!</button>
+                    <button class='resetButton'>Reset</button>
+                </div>
+                <p class='encrypted'>    
+                
+                </p>
+            </div>
         </main>
         ${Footer}
     `)
@@ -24,22 +32,26 @@ const promise = new Promise(resolve => {
   
   promise
     .then(result => {
-        const input = document.querySelector('.stringToEncrypt')
-        const encryptedContent = document.querySelector('.encrypted')
-        const sendButton = document.querySelector('.sendButton')
-        const resetButton = document.querySelector('.resetButton')
+        const input = document.querySelector('.stringToEncrypt');
+        const encryptedContent = document.querySelector('.encrypted');
+        const sendButton = document.querySelector('.sendButton');
+        const resetButton = document.querySelector('.resetButton');
 
-        const encryptContent = () => (
-            encryptedContent.innerHTML = (input.value === '' ? Encrypt(input.placeholder) : Encrypt(input.value))
-        )
+        const encryptContent = () => {
+            encryptedContent.classList.remove('isError');
+            encryptedContent.innerHTML = Encrypt(input.value)
+            if (encryptedContent.innerHTML === 'Sorry, your message must be a text' || encryptedContent.innerHTML === `Sorry, your message can't be empty`) {
+                encryptedContent.classList.add('isError');
+            }
+        };
 
         const resetForm = () => {
+            encryptedContent.classList.remove('isError');
             input.value = '';
-            input.placeholder = 'PRZEPROGRAMOWANI';
             encryptedContent.innerHTML = '';
         }
 
-        sendButton.onclick = encryptContent
-        resetButton.onclick = resetForm
+        sendButton.onclick = encryptContent;
+        resetButton.onclick = resetForm;
     }
 )

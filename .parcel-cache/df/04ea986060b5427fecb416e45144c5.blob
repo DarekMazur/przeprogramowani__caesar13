@@ -1,0 +1,15 @@
+html, body {
+  width: 100%;
+}
+
+header {
+  min-height: 15vh;
+}
+
+footer {
+  min-height: 15vh;
+}
+
+main {
+  min-height: 70vh;
+}

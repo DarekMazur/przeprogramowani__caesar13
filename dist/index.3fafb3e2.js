@@ -449,19 +449,27 @@ var _componentsFooterFooter = require('./components/Footer/Footer');
 var _componentsFooterFooterDefault = _parcelHelpers.interopDefault(_componentsFooterFooter);
 var _componentsEncryptEncrypt = require('./components/Encrypt/Encrypt');
 var _componentsEncryptEncryptDefault = _parcelHelpers.interopDefault(_componentsEncryptEncrypt);
+require('./styles/styles.css');
 const app = document.querySelector('body');
 const promise = new Promise(resolve => {
   resolve(app.innerHTML = `
         ${_componentsHeaderHeaderDefault.default}
         <main>
-            <p>
-                <textarea class='stringToEncrypt' placeholder='PRZEPROGRAMOWANI'></textarea>
-                <button class='sendButton'>Encrypt!</button>
-                <button class='resetButton'>Reset</button>
-            </p>
-            <p class='encrypted'>    
-            
-            </p>
+            <div class='encryptorWrapper'>
+                <div class=formWrapper>
+                    <textarea class='stringToEncrypt' name='stringToEncrypt' placeholder=" "></textarea>
+                    <label for='stringToEncrypt'>
+                        Message to encrypt
+                    </label>
+                </div>
+                <div class='buttonWrapper'>
+                    <button class='sendButton'>Encrypt!</button>
+                    <button class='resetButton'>Reset</button>
+                </div>
+                <p class='encrypted'>    
+                
+                </p>
+            </div>
         </main>
         ${_componentsFooterFooterDefault.default}
     `);
@@ -471,33 +479,73 @@ promise.then(result => {
   const encryptedContent = document.querySelector('.encrypted');
   const sendButton = document.querySelector('.sendButton');
   const resetButton = document.querySelector('.resetButton');
-  const encryptContent = () => encryptedContent.innerHTML = input.value === '' ? _componentsEncryptEncryptDefault.default(input.placeholder) : _componentsEncryptEncryptDefault.default(input.value);
+  const encryptContent = () => {
+    encryptedContent.classList.remove('isError');
+    encryptedContent.innerHTML = _componentsEncryptEncryptDefault.default(input.value);
+    if (encryptedContent.innerHTML === 'Sorry, your message must be a text' || encryptedContent.innerHTML === `Sorry, your message can't be empty`) {
+      encryptedContent.classList.add('isError');
+    }
+  };
   const resetForm = () => {
+    encryptedContent.classList.remove('isError');
     input.value = '';
-    input.placeholder = 'PRZEPROGRAMOWANI';
     encryptedContent.innerHTML = '';
   };
   sendButton.onclick = encryptContent;
   resetButton.onclick = resetForm;
 });
 
-},{"./components/Encrypt/Encrypt":"7krV9","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS","./components/Header/Header":"5RL9x","./components/Footer/Footer":"66OBm"}],"7krV9":[function(require,module,exports) {
+},{"./components/Header/Header":"5RL9x","./components/Footer/Footer":"66OBm","./components/Encrypt/Encrypt":"7krV9","./styles/styles.css":"4lcUo","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"5RL9x":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
-var _ROT13ROT = require('../ROT13/ROT13');
-var _ROT13ROTDefault = _parcelHelpers.interopDefault(_ROT13ROT);
-var _utilsFunctions = require('../../utils/functions');
-const Encrypt = input => {
-  const plainTextArray = input.split('');
-  const plainTextUniversalChars = [];
-  plainTextArray.forEach(letter => {
-    plainTextUniversalChars.push(_utilsFunctions.polishToUniversalLetter(letter));
-  });
-  return _ROT13ROTDefault.default(plainTextUniversalChars);
+var _EliotEliot = require('../Eliot/Eliot');
+var _EliotEliotDefault = _parcelHelpers.interopDefault(_EliotEliot);
+const Header = () => {
+  return `
+        <header>
+            <h1>Simple encryptor by Gacek</h1>
+            <h2>${_EliotEliotDefault.default('Encrypt your message')}<h2>
+        </header>
+    `;
 };
-exports.default = Encrypt;
+exports.default = Header();
 
-},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS","../ROT13/ROT13":"7iZXf","../../utils/functions":"6iMha"}],"3fLqS":[function(require,module,exports) {
+},{"../Eliot/Eliot":"7c2zi","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"7c2zi":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+const Eliot = message => {
+  const messageArray = message.split('');
+  function staticChanges(letter) {
+    switch (letter.toLowerCase()) {
+      case 'a':
+        return '4';
+      case 'i':
+        return '1';
+      case 'o':
+        return '0';
+      case 'e':
+        return '3';
+      case 's':
+        return '5';
+      default:
+        return letter;
+    }
+  }
+  let toLower = false;
+  function convertLetterToEliot(letter, index) {
+    if (staticChanges(letter) !== letter) {
+      return staticChanges(letter);
+    }
+    function newLetter() {
+      return index % 2 === 0 ? letter.toUpperCase() : letter.toLowerCase();
+    }
+    return newLetter();
+  }
+  return messageArray.reduce((total, letter, letterIndex) => total + convertLetterToEliot(letter, letterIndex), '');
+};
+exports.default = Eliot;
+
+},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"3fLqS":[function(require,module,exports) {
 "use strict";
 
 exports.interopDefault = function (a) {
@@ -539,7 +587,49 @@ exports.export = function (dest, destName, get) {
     get: get
   });
 };
-},{}],"7iZXf":[function(require,module,exports) {
+},{}],"66OBm":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+const Footer = () => {
+  const currentYear = `© ${new Date().getFullYear()}, Darek Mazur`;
+  return `
+        <footer>
+            <h3>${currentYear}</h3>
+        </footer>
+    `;
+};
+exports.default = Footer();
+
+},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"7krV9":[function(require,module,exports) {
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _ROT13ROT = require('../ROT13/ROT13');
+var _ROT13ROTDefault = _parcelHelpers.interopDefault(_ROT13ROT);
+var _utilsFunctions = require('../../utils/functions');
+const Encrypt = input => {
+  if (typeof input !== 'string' || !isNaN(Number(input))) {
+    try {
+      throw new Error('Sorry, your message must be a text');
+    } catch (e) {
+      return e.message;
+    }
+  } else if (input === '' || input === ' ') {
+    try {
+      throw new Error(`Sorry, your message can't be empty`);
+    } catch (e) {
+      return e.message;
+    }
+  }
+  const plainTextArray = input.split('');
+  const plainTextUniversalChars = [];
+  plainTextArray.forEach(letter => {
+    plainTextUniversalChars.push(_utilsFunctions.polishToUniversalLetter(letter));
+  });
+  return _ROT13ROTDefault.default(plainTextUniversalChars);
+};
+exports.default = Encrypt;
+
+},{"../ROT13/ROT13":"7iZXf","../../utils/functions":"6iMha","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"7iZXf":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
 var _utilsAllLettersArray = require('../../utils/allLettersArray');
@@ -560,7 +650,7 @@ const ROT13 = plainText => {
 };
 exports.default = ROT13;
 
-},{"../../utils/allLettersArray":"3Yc6Z","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS","../../utils/variables":"2jDx0"}],"3Yc6Z":[function(require,module,exports) {
+},{"../../utils/allLettersArray":"3Yc6Z","../../utils/variables":"2jDx0","@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"3Yc6Z":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
 exports.default = allLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -621,31 +711,6 @@ function polishToUniversalLetter(letter) {
 }
 ;
 
-},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"5RL9x":[function(require,module,exports) {
-var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-_parcelHelpers.defineInteropFlag(exports);
-const Header = () => {
-  return `
-        <header>
-            <h1>Lorem Ipsum</h1>
-            <h2>Dolor sit amet<h2>
-        </header>
-    `;
-};
-exports.default = Header();
-
-},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"66OBm":[function(require,module,exports) {
-var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-_parcelHelpers.defineInteropFlag(exports);
-const Footer = () => {
-  return `
-        <footer>
-            <h3>Lorem Ipsum</h3>
-        </footer>
-    `;
-};
-exports.default = Footer();
-
-},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}]},["3Imd1","5rkFb"], "5rkFb", "parcelRequireee2d")
+},{"@parcel/transformer-js/lib/esmodule-helpers.js":"3fLqS"}],"4lcUo":[function() {},{}]},["3Imd1","5rkFb"], "5rkFb", "parcelRequireee2d")
 
 //# sourceMappingURL=index.3fafb3e2.js.map

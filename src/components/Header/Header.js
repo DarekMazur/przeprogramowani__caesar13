@@ -1,8 +1,10 @@
+import Eliot from '../Eliot/Eliot'
+
 const Header = () =>{
     return(`
         <header>
-            <h1>Lorem Ipsum</h1>
-            <h2>Dolor sit amet<h2>
+            <h1>Simple encryptor by Gacek</h1>
+            <h2>${Eliot('Encrypt your message')}<h2>
         </header>
     `)}
 

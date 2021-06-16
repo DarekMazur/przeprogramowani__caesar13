@@ -1,0 +1,13 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _EliotEliot = require('../Eliot/Eliot');
+var _EliotEliotDefault = _parcelHelpers.interopDefault(_EliotEliot);
+const Header = () => {
+  return `
+        <header>
+            <h1>${_EliotEliotDefault.default('Encrypt your message')}</h1>
+            <h2>Dolor sit amet<h2>
+        </header>
+    `;
+};
+exports.default = Header();
