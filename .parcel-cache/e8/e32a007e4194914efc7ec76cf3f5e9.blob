@@ -1,0 +1,11 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+const Footer = () => {
+  const currentYear = `© ${new Date().getFullYear()}, Darek Mazur`;
+  return `
+        <footer>
+            <h3>${currentYear}</h3>
+        </footer>
+    `;
+};
+exports.default = Footer();

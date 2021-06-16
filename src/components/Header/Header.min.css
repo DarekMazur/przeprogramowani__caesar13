@@ -1,0 +1,1 @@
+@keyframes doorOpen{from{transform:translateX(-100%) rotate(-180deg)}to{transform:translateX(0) rotate(0)}}header{display:flex;align-items:center}svg{width:200px;height:200px;margin-right:2rem}svg .door{transform-origin:50% 50%;animation:1000ms both 2000ms doorOpen}
