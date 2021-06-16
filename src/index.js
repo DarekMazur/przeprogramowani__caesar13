@@ -2,7 +2,7 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Encrypt from './components/Encrypt/Encrypt';
 
-const app = document.querySelector('#app');
+const app = document.querySelector('body');
 
 app.innerHTML = `
     ${Header}
