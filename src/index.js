@@ -16,10 +16,10 @@ const promise = new Promise(resolve => {
                     <label for='stringToEncrypt'>
                         Message to encrypt
                     </label>
-                </div>
-                <div class='buttonWrapper'>
-                    <button class='sendButton'>Encrypt!</button>
-                    <button class='resetButton'>Reset</button>
+                    <div class='buttonWrapper'>
+                        <button class='sendButton'>Encrypt!</button>
+                        <button class='resetButton'>Reset</button>
+                    </div>
                 </div>
                 <p class='encrypted'>    
                 

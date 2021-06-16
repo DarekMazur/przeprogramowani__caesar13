@@ -7,7 +7,6 @@
     transform: translateX(0) rotate(0);
   }
 }
-
 html, body {
   width: 100%;
   padding: 0;
@@ -16,46 +15,38 @@ html, body {
   font-size: 16px;
   line-height: 1.5rem;
 }
-
 *, *::after, *::before {
   box-sizing: border-box;
 }
-
 h1, h2, h3 {
   padding: 0;
   margin: 0;
   font-family: 'Raleway', sans-serif;
 }
-
 h1 {
   margin-bottom: 2rem;
 }
-
 header, footer, main {
   width: 100%;
   min-height: 15vh;
   padding: 2rem;
   margin: 0;
 }
-
 header {
   display: flex;
   align-items: center;
 }
-
 main {
   min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 label {
   color: #7d7d7d;
   position: absolute;
@@ -64,13 +55,11 @@ label {
   transition: 0.2s ease-out all;
   font-size: 16px;
 }
-
 .formWrapper {
   position: relative;
   width: 40%;
   padding-right: 2rem;
 }
-
 textarea {
   color: #7d7d7d;
   border: none;
@@ -81,29 +70,22 @@ textarea {
   resize: none;
   font-family: 'DM Mono', monospace;
 }
-
 textarea:focus {
   outline: none;
 }
-
 textarea:focus + label {
   top: -22px;
   font-size: 13px;
-  color: #B4B4B4;
 }
-
 textarea:not(:placeholder-shown) + label {
   top: -22px;
   font-size: 13px;
-  color: #B4B4B4;
 }
-
 .buttonWrapper {
   width: 30vw;
   display: flex;
   justify-content: space-between;
 }
-
 button, .sendButton {
   display: block;
   font-size: 10px;
@@ -115,35 +97,29 @@ button, .sendButton {
   color: #000;
   cursor: pointer;
 }
-
 .sendButton {
   color: #fff;
   background: #000;
 }
-
 .isError {
   color: red;
   font-size: 1.2rem;
   font-weight: 700;
 }
-
 svg {
   width: 200px;
   height: 200px;
   margin-right: 2rem;
 }
-
 svg .door {
   transform-origin: 50% 50%;
   animation: 1000ms both 2000ms doorOpen;
 }
-
 .encryptorWrapper {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-
 .encrypted {
   width: 60%;
   padding-left: 2rem;
