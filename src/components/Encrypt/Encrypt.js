@@ -1,5 +1,5 @@
 import ROT13 from '../ROT13/ROT13'
-import { polishToUniversalLetter } from '../../utils/functions'
+import { polishToUniversalLetter } from '../../utils/polishToUniversalLetter'
 
 const Encrypt = (input) => {
 

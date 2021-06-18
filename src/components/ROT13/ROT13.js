@@ -1,5 +1,5 @@
 import allLetters from '../../utils/allLettersArray'
-import variables from '../../utils/variables'
+import constants from '../../utils/constants'
 
 const ROT13 = (plainText) => {
 
@@ -9,9 +9,9 @@ const ROT13 = (plainText) => {
         if (allLetters.some((el) => letter.toLowerCase() === el )) {
             const letterPosition = allLetters.indexOf(letter.toLowerCase());
             letter === letter.toUpperCase() ? (
-                encryption.push(allLetters[(letterPosition + variables.encryption) % (allLetters.length)].toUpperCase())
+                encryption.push(allLetters[(letterPosition + constants.encryption) % (allLetters.length)].toUpperCase())
             ) : (
-                encryption.push(allLetters[(letterPosition + variables.encryption) % (allLetters.length)])
+                encryption.push(allLetters[(letterPosition + constants.encryption) % (allLetters.length)])
             )
         } else {
             encryption.push(letter)

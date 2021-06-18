@@ -21,5 +21,8 @@
   "homepage": "https://github.com/DarekMazur/przeprogramowani__caesar13#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0-beta.2"
+  },
+  "dependencies": {
+    "eslint": "^7.28.0"
   }
 }
