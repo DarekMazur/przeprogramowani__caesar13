@@ -1,70 +1,70 @@
 label {
-    color: #7d7d7d;
-    position: absolute;
-    top: 3px;
-    left: 0;
-    transition: 0.2s ease-out all;
-    font-size: 16px;
+  color: #7d7d7d;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: 0.2s ease-out all;
+  font-size: 16px;
 }
 
 .formWrapper {
-    position: relative;
-    width: 40%;
-    padding-right: 2rem;
+  position: relative;
+  width: 40%;
+  padding-right: 2rem;
 }
 
 textarea {
-    color: #7d7d7d;
-    border: none;
-    width: 100%;
-    background: none;
-    height: 30vh;
-    resize: none;
-    font-family: 'DM Mono', monospace;
+  color: #7d7d7d;
+  border: #c6c6c6 solid 0.2px;
+  width: 100%;
+  background: none;
+  height: 30vh;
+  resize: none;
+  font-family: "DM Mono", monospace;
 }
 
 textarea:focus {
-    outline: none;
+  outline: none;
 }
 
 textarea:focus + label {
-    top: -22px;
-    font-size: 13px;
-    color: #B4B4B4;
+  top: -22px;
+  font-size: 13px;
+  color: #b4b4b4;
 }
 
 textarea:not(:placeholder-shown) + label {
-    top: -22px;
-    font-size: 13px;
-    color: #B4B4B4;
+  top: -22px;
+  font-size: 13px;
+  color: #b4b4b4;
 }
 
 .buttonWrapper {
-    width: 30vw;
-    display: flex;
-    justify-content: space-between;
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
 }
 
 button {
-    display: block;
-    font-size: 10px;
-    text-decoration: none;
-    padding: 7px 12px;
-    font-weight: 500;
-    background: none;
-    border: 2px solid #000;
-    color: #000;
-    cursor: pointer;
+  display: block;
+  font-size: 10px;
+  text-decoration: none;
+  padding: 7px 12px;
+  font-weight: 500;
+  background: none;
+  border: 2px solid #000;
+  color: #000;
+  cursor: pointer;
 }
 
 .sendButton {
-    @extend button;
-    color: #fff;
-    background: #000;
+  @extend button;
+  color: #fff;
+  background: #000;
 }
 
 .isError {
-    color: red;
-    font-size: 1.2rem;
-    font-weight: 700;
+  color: red;
+  font-size: 1.2rem;
+  font-weight: 700;
 }

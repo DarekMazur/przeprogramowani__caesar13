@@ -1,5 +1,5 @@
 const MainContent = () => {
-    return(`
+  return `
         <main>
             <div class='encryptorWrapper'>
                 <div class=formWrapper>
@@ -12,12 +12,16 @@ const MainContent = () => {
                         <button class='resetButton'>Reset</button>
                     </div>
                 </div>
-                <p class='encrypted'>    
+                <div class='encryptedWrapper'>
+                    <p class='encryptedHeader'>Your encrypted message:</p>
+                    <p class='encrypted'>
+                            
+                    </p>
+                </div>
                 
-                </p>
             </div>
         </main>
-    `)
-}
+    `;
+};
 
-export default MainContent()
+export default MainContent();
