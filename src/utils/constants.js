@@ -1,3 +1,3 @@
-export default constants = {
-    encryption: 13,
-}
+export const constants = {
+  encryption: 13,
+};

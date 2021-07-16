@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "npx parcel index.html",
     "build": "npx parcel build index.html"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "repository": {
     "type": "git",
@@ -20,7 +25,10 @@
   },
   "homepage": "https://github.com/DarekMazur/przeprogramowani__caesar13#readme",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-beta.2"
+    "@babel/preset-env": "^7.14.7",
+    "@parcel/transformer-sass": "^2.0.0-beta.2",
+    "babel-jest": "^27.0.6",
+    "jest": "^25.2.2"
   },
   "dependencies": {
     "eslint": "^7.28.0"
