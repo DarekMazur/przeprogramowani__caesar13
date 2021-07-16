@@ -11,6 +11,7 @@ label {
   position: relative;
   width: 40%;
   padding-right: 2rem;
+  min-height: 40vh;
 }
 
 textarea {
@@ -18,7 +19,7 @@ textarea {
   border: #c6c6c6 solid 0.2px;
   width: 100%;
   background: none;
-  height: 30vh;
+  height: 15vh;
   resize: none;
   font-family: "DM Mono", monospace;
 }
