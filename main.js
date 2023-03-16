@@ -2,7 +2,7 @@ import Header from './src/components/Header/Header'
 import MainContent from './src/components/MainContent/MainContent'
 import Footer from './src/components/Footer/Footer'
 import Encrypt from './src/components/Encrypt/Encrypt';
-import './src/styles/styles.min.css';
+import './src/styles/styles.css';
 
 const app = document.querySelector('body');
 
