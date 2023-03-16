@@ -1,8 +1,8 @@
-import Header from './components/Header/Header'
-import MainContent from './components/MainContent/MainContent'
-import Footer from './components/Footer/Footer'
-import Encrypt from './components/Encrypt/Encrypt';
-import './styles/styles.min.css';
+import Header from './src/components/Header/Header'
+import MainContent from './src/components/MainContent/MainContent'
+import Footer from './src/components/Footer/Footer'
+import Encrypt from './src/components/Encrypt/Encrypt';
+import './src/styles/styles.min.css';
 
 const app = document.querySelector('body');
 
