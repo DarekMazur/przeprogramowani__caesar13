@@ -2,7 +2,7 @@ label {
   color: #7d7d7d;
   position: absolute;
   top: 3px;
-  left: 0;
+  left: 3px;
   transition: 0.2s ease-out all;
   font-size: 16px;
 }
@@ -11,16 +11,17 @@ label {
   position: relative;
   width: 40%;
   padding-right: 2rem;
+  min-height: 40vh;
 }
 
 textarea {
   color: #7d7d7d;
-  border: none;
+  border: #c6c6c6 solid 0.2px;
   width: 100%;
   background: none;
-  height: 30vh;
+  height: 15vh;
   resize: none;
-  font-family: 'DM Mono', monospace;
+  font-family: "DM Mono", monospace;
 }
 
 textarea:focus {
@@ -30,13 +31,13 @@ textarea:focus {
 textarea:focus + label {
   top: -22px;
   font-size: 13px;
-  color: #B4B4B4;
+  color: #b4b4b4;
 }
 
 textarea:not(:placeholder-shown) + label {
   top: -22px;
   font-size: 13px;
-  color: #B4B4B4;
+  color: #b4b4b4;
 }
 
 .buttonWrapper {
@@ -45,7 +46,7 @@ textarea:not(:placeholder-shown) + label {
   justify-content: space-between;
 }
 
-button, .sendButton {
+button {
   display: block;
   font-size: 10px;
   text-decoration: none;
@@ -58,6 +59,7 @@ button, .sendButton {
 }
 
 .sendButton {
+  @extend button;
   color: #fff;
   background: #000;
 }

@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&family=Montserrat:wght@400;700&family=Raleway:wght@500&display=swap');
-@import url('../components/Header/Header.scss');
-@import url('../components/Footer/Footer.scss');
-@import url('../components/MainContent/MainContent.scss');
-@import url('../components/MainContent/Form.scss');
+@import url('../components/Header/Header.css');
+@import url('../components/Footer/Footer.css');
+@import url('../components/MainContent/MainContent.css');
+@import url('../components/MainContent/Form.css');
 
 html, body {
     width: 100%;
