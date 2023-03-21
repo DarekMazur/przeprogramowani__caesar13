@@ -34,6 +34,7 @@ promise
         const resetForm = () => {
             encryptedContent.classList.remove('isError');
             input.value = '';
+            encryptValue.value = '';
             encryptedContent.innerHTML = '';
         }
 
