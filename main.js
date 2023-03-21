@@ -18,14 +18,15 @@ const promise = new Promise(resolve => {
 promise
     .then(result => {
         const input = document.querySelector('.stringToEncrypt');
+        const encryptValue = document.querySelector('.encryptionValue');
         const encryptedContent = document.querySelector('.encrypted');
         const sendButton = document.querySelector('.sendButton');
         const resetButton = document.querySelector('.resetButton');
 
         const encryptContent = () => {
             encryptedContent.classList.remove('isError');
-            encryptedContent.innerHTML = Encrypt(input.value)
-            if (encryptedContent.innerHTML === 'Sorry, your message must be a text' || encryptedContent.innerHTML === `Sorry, your message can't be empty`) {
+            encryptedContent.innerHTML = Encrypt(input.value, parseInt(encryptValue.value))
+            if (encryptedContent.innerHTML === 'Sorry, your message must be a text' || encryptedContent.innerHTML === `Sorry, your message can't be empty` || encryptedContent.innerHTML === `Sorry, encryption value should be positive`) {
                 encryptedContent.classList.add('isError');
             }
         };

@@ -1,7 +1,8 @@
 import ROT13 from "../ROT13/ROT13";
 import { polishToUniversalLetter } from "../../utils/polishToUniversalLetter";
 
-const Encrypt = (input) => {
+const Encrypt = (input, value) => {
+  console.log(`input: ${input}, value: ${value}`)
   if (
     typeof input !== "string" ||
     (!isNaN(Number(input)) && input.length > 0)
@@ -17,6 +18,12 @@ const Encrypt = (input) => {
     } catch (e) {
       return e.message;
     }
+  } else if (value < 0) {
+    try {
+      throw new Error(`Sorry, encryption value should be positive`);
+    } catch (e) {
+      return e.message;
+    }
   }
 
   const plainTextArray = input.split("");
@@ -27,7 +34,7 @@ const Encrypt = (input) => {
     plainTextUniversalChars.push(polishToUniversalLetter(letter));
   });
 
-  return ROT13(plainTextUniversalChars);
+  return ROT13(plainTextUniversalChars, value);
 };
 
 export default Encrypt;
